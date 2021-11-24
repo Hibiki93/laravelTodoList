@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Hash;
+use Session;
 
 use Illuminate\Http\Request;
 use Validator;
@@ -60,20 +61,6 @@ class MainController extends Controller
         }else{
             return back()->with('fail','This email is not registerd.');
         }
-
-        // $user_data = array(
-        //     'email' => $request->get('email'),
-        //     'password' => $request->get('password')
-        // );
-
-        // if(Auth::attempt($user_data))
-        // {
-        //     return redirect('login/successlogin');
-        // }
-        // else
-        // {
-        //     return back()->with('error','Wrong Login Detail');
-        // }
     }
 
     function successlogin(){
@@ -83,6 +70,7 @@ class MainController extends Controller
 
     function logout(){
         Auth::logout();
-        return reddirect('login');
+        Session::pull('loginId');
+        return redirect('login');
     }
 }

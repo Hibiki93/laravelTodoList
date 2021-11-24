@@ -33,9 +33,10 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <h3>To-do List</h3>
+                <a href="/logout">Logout</a>
                 @if(isset(Auth::user()->email))
                     <div class="alert alert-danger success-block">
-                        <strong>Welcome {{Auth::user()->email}}</strong>
+                        <strong>Welcome {{$user->name}}</strong>
                         <br>
                         <a href="{{url('/login/logout')}}">Logout</a>
                     </div>
