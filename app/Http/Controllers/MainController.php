@@ -53,7 +53,7 @@ class MainController extends Controller
         if($user){
             if(Hash::check($request->password,$user->password)){
                 $request->session()->put('loginId',$user->id);
-                return view('home');
+                return redirect('/');
             }else{
                 return back()->with('fail','Password or ID incorrect.');
             }
