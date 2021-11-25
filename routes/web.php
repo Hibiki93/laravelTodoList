@@ -21,9 +21,9 @@ Route::delete('/{todolist:id}',[TodolistController::class, 'destroy'])->name('de
 
 // Route::get('/',[TodolistController::class, 'index'])->name('index');
 
-Route::get('/login',[MainController::class, 'index'])->name('login');
+Route::get('/login',[MainController::class, 'index'])->name('login')->middleware('alreadyLoggedIn');
 Route::post('/checklogin',[MainController::class, 'checklogin'])->name('checklogin');
 Route::get('/login/successlogin',[MainController::class, 'successlogin'])->name('successlogin');
 Route::get('/logout',[MainController::class, 'logout'])->name('logout');
-Route::get('/register',[MainController::class, 'registration'])->name('registration');
 Route::post('/registerAccount',[MainController::class, 'register'])->name('register');
+Route::get('/registerAccount',[MainController::class, 'registration'])->name('registration')->middleware('alreadyLoggedIn');

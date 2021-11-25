@@ -29,14 +29,14 @@
 </head>
 
 <body class="bg-info">
-    <div class="container w-25 mt-5">
+    <div class="container mt-5" style="max-width:500px">
         <div class="card shadow-sm">
             <div class="card-body">
                 <h3>To-do List</h3>
                 <a href="/logout">Logout</a>
                 @if(isset(Auth::user()->email))
                     <div class="alert alert-danger success-block">
-                        <strong>Welcome {{$user->name}}</strong>
+                        <strong>Welcome {{$data->name}}</strong>
                         <br>
                         <a href="{{url('/login/logout')}}">Logout</a>
                     </div>
